@@ -1,3 +1,6 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // Iniciar carrito
+});
 //Clases
 class executeRequest {
   constructor() {
@@ -7,6 +10,22 @@ class executeRequest {
     const response = await fetch(this.url);
     const data = await response.json();
     return data;
+  }
+}
+class Cart {
+  constructor() {
+    this.cart = JSON.parse(localStorage.getItem("cart")) || [];
+  }
+  addProduct(product) {
+    this.cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(this.cart));
+  }
+  getProducts() {
+    return this.cart;
+  }
+  clearCart() {
+    this.cart = [];
+    localStorage.removeItem("cart");
   }
 }
 //Declaraciones
@@ -32,6 +51,7 @@ function chargeProducts() {
   new executeRequest()
     .get()
     .then((data) => {
+      console.log(data);
       //Pagination
       initPagination(data);
       //Products
@@ -89,8 +109,8 @@ function initProducts(product) {
   productDescription.className = "product-description";
   const span = document.createElement("span");
   span.innerHTML = product.category;
-  const a = document.createElement("a");
-  a.href = "single-product-details.html";
+  const a1 = document.createElement("a");
+  a1.href = "product.html?id=" + product.id;
   const h6 = document.createElement("h6");
   h6.innerHTML = product.title;
   const p = document.createElement("p");
@@ -100,12 +120,10 @@ function initProducts(product) {
   hoverContent.className = "hover-content";
   const addToCartBtn = document.createElement("div");
   addToCartBtn.className = "add-to-cart-btn";
-  const button = document.createElement("button");
-  button.className = "btn essence-btn p-0";
-  button.innerHTML = `<img src="img/core-img/bag.svg" width="25" alt="" /> Agregar al carrito`;
-  button.onclick = () => {
-    alert("Producto agregado al carrito");
-  };
+  const a2 = document.createElement("a");
+  a2.className = "btn essence-btn p-0";
+  a2.innerHTML = `Ver producto`;
+  a2.href = "product.html?id=" + product.id;
   //Append
   list_products.appendChild(div);
   div.appendChild(productWrapper);
@@ -114,10 +132,10 @@ function initProducts(product) {
   productImg.appendChild(hoverImg);
   productWrapper.appendChild(productDescription);
   productDescription.appendChild(span);
-  productDescription.appendChild(a);
-  a.appendChild(h6);
+  productDescription.appendChild(a1);
+  a1.appendChild(h6);
   productDescription.appendChild(p);
   productDescription.appendChild(hoverContent);
   hoverContent.appendChild(addToCartBtn);
-  addToCartBtn.appendChild(button);
+  addToCartBtn.appendChild(a2);
 }
