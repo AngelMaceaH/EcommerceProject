@@ -107,6 +107,7 @@
       </div>
     </header>
     <div class="cart-bg-overlay"></div>
+
     <div class="right-side-cart-area">
       <div class="cart-button">
         <a href="#" id="rightSideCart">
@@ -115,78 +116,134 @@
       </div>
 
       <div class="cart-content d-flex">
-        <div class="cart-list">
-          <div class="single-cart-item">
-            <a href="#" class="product-image">
-              <img
-                src="img/product-img/product-1.jpg"
-                class="cart-thumb"
-                alt=""
-              />
-              <div class="cart-item-desc">
-                <span class="product-remove"
-                  ><i class="fa fa-close" aria-hidden="true"></i
-                ></span>
-                <span class="badge">Mango</span>
-                <h6>Vestido Mini con Tirantes</h6>
-                <p class="size">Talla: S</p>
-                <p class="color">Color: Rojo</p>
-                <p class="price">$45.00</p>
-              </div>
-            </a>
+        <div class="cart-list px-2">
+          <div id="header-cart" class="py-3">
+            <h2>Mi carrito</h2>
           </div>
-
-          <div class="single-cart-item">
-            <a href="#" class="product-image">
-              <img
-                src="img/product-img/product-2.jpg"
-                class="cart-thumb"
-                alt=""
-              />
-              <div class="cart-item-desc">
-                <span class="product-remove"
-                  ><i class="fa fa-close" aria-hidden="true"></i
-                ></span>
-                <span class="badge">Mango</span>
-                <h6>Vestido Mini con Tirantes</h6>
-                <p class="size">Talla: S</p>
-                <p class="color">Color: Rojo</p>
-                <p class="price">$45.00</p>
-              </div>
-            </a>
+          <div id="body-cart">
+            <div class="single-cart-item my-2">
+              <a href="#" class="product-image">
+                <img
+                  src="img/product-img/product-1.jpg"
+                  class="cart-thumb"
+                  alt=""
+                />
+                <div class="cart-item-desc">
+                  <span class="product-remove"
+                    ><i class="fa fa-close" aria-hidden="true"></i
+                  ></span>
+                  <span class="badge">Mango</span>
+                  <h6>Vestido Mini con Tirantes</h6>
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="color">Talla: S</p>
+                    </div>
+                    <div class="col-6">
+                      <p class="color">Color: Rojo</p>
+                    </div>
+                    <div class="col-6">
+                      <p class="color">Cantidad: 2</p>
+                    </div>
+                    <div class="col-6 d-flex justify-content-end">
+                      <p class="color text-white fs-4">$45.00</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="single-cart-item my-2">
+              <a href="#" class="product-image">
+                <img
+                  src="img/product-img/product-2.jpg"
+                  class="cart-thumb"
+                  alt=""
+                />
+                <div class="cart-item-desc">
+                  <span class="product-remove"
+                    ><i class="fa fa-close" aria-hidden="true"></i
+                  ></span>
+                  <span class="badge">Mango</span>
+                  <h6>Vestido Mini con Tirantes</h6>
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="color">Talla: S</p>
+                    </div>
+                    <div class="col-6">
+                      <p class="color">Color: Rojo</p>
+                    </div>
+                    <div class="col-6">
+                      <p class="color">Cantidad: 2</p>
+                    </div>
+                    <div class="col-6 d-flex justify-content-end">
+                      <p class="color text-white fs-4">$45.00</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="single-cart-item my-2">
+              <a href="#" class="product-image">
+                <img
+                  src="img/product-img/product-3.jpg"
+                  class="cart-thumb"
+                  alt=""
+                />
+                <div class="cart-item-desc">
+                  <span class="product-remove"
+                    ><i class="fa fa-close" aria-hidden="true"></i
+                  ></span>
+                  <span class="badge">Mango</span>
+                  <h6>Vestido Mini con Tirantes</h6>
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="color">Talla: S</p>
+                    </div>
+                    <div class="col-6">
+                      <p class="color">Color: Rojo</p>
+                    </div>
+                    <div class="col-6">
+                      <p class="color">Cantidad: 2</p>
+                    </div>
+                    <div class="col-6 d-flex justify-content-end">
+                      <p class="color text-white fs-4">$45.00</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
           </div>
-
-          <div class="single-cart-item">
-            <a href="#" class="product-image">
-              <img
-                src="img/product-img/product-3.jpg"
-                class="cart-thumb"
-                alt=""
-              />
-              <div class="cart-item-desc">
-                <span class="product-remove"
-                  ><i class="fa fa-close" aria-hidden="true"></i
-                ></span>
-                <span class="badge">Mango</span>
-                <h6>Vestido Mini con Tirantes</h6>
-                <p class="size">Talla: S</p>
-                <p class="color">Color: Rojo</p>
-                <p class="price">$45.00</p>
+          <div id="footer-cart" class="px-2">
+            <div class="row py-3 fs-3">
+              <div class="col-6">
+                <span class="font-bold">Subtotal:</span>
               </div>
-            </a>
-          </div>
-        </div>
-
-        <div class="cart-amount-summary">
-          <h2>Resumen</h2>
-          <ul class="summary-table">
-            <li><span>Subtotal:</span> <span>$274.00</span></li>
-            <li><span>Envío:</span> <span>Gratis</span></li>
-            <li><span>Descuento:</span> <span>-15%</span></li>
-            <li><span>Total:</span> <span>$232.00</span></li>
-          </ul>
-          <div class="checkout-btn mt-100">
-            <a href="checkout.html" class="btn essence-btn">Finalizar compra</a>
+              <div class="col-6 text-right">
+                <span>$90.00</span>
+              </div>
+              <div class="col-6">
+                <span class="font-bold">Envío:</span>
+              </div>
+              <div class="col-6 text-right">
+                <span>Gratis</span>
+              </div>
+              <div class="col-6">
+                <span class="font-bold">Descuento:</span>
+              </div>
+              <div class="col-6 text-right">
+                <span>1.99</span>
+              </div>
+              <div class="col-6">
+                <span class="font-bold">Gran Total:</span>
+              </div>
+              <div class="col-6 text-right">
+                <span>88.1</span>
+              </div>
+              <div class="col-12">
+                <a href="checkout.html" class="btn essence-btn w-100 mt-3"
+                  >Pagar ahora</a
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -400,5 +457,6 @@
     <script src="js/plugins.js"></script>
     <script src="js/classy-nav.min.js"></script>
     <script src="js/active.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

@@ -97,8 +97,8 @@
           </div>
           <div class="cart-area">
             <a href="#" id="essenceCartBtn"
-              ><img src="img/core-img/bag.svg" alt="" /> <span></span></a
-            >
+              ><img src="img/core-img/bag.svg" alt="" /> <span></span
+            ></a>
           </div>
         </div>
       </div>
@@ -108,74 +108,52 @@
     <div class="right-side-cart-area">
       <div class="cart-button">
         <a href="#" id="rightSideCart">
-          <img src="img/core-img/bag.svg" alt="" /> <span></span>
+          <img src="img/core-img/bag.svg" alt="" /> <span>3</span>
         </a>
       </div>
 
       <div class="cart-content d-flex">
-        <div class="cart-list">
-          <div class="single-cart-item">
-            <a href="#" class="product-image">
-              <img
-                src="img/product-img/product-1.jpg"
-                class="cart-thumb"
-                alt=""
-              />
-              <div class="cart-item-desc">
-                <span class="product-remove"
-                  ><i class="fa fa-close" aria-hidden="true"></i
-                ></span>
-                <span class="badge">Mango</span>
-                <h6>Vestido Mini con Tirantes</h6>
-                <p class="size">Talla: S</p>
-                <p class="color">Color: Rojo</p>
-                <p class="price">$45.00</p>
-              </div>
-            </a>
+        <div class="cart-list px-2">
+          <div id="header-cart" class="py-3">
+            <h2>Mi carrito</h2>
           </div>
+          <div id="body-cart">
 
-          <div class="single-cart-item">
-            <a href="#" class="product-image">
-              <img
-                src="img/product-img/product-2.jpg"
-                class="cart-thumb"
-                alt=""
-              />
-              <div class="cart-item-desc">
-                <span class="product-remove"
-                  ><i class="fa fa-close" aria-hidden="true"></i
-                ></span>
-                <span class="badge">Mango</span>
-                <h6>Vestido Mini con Tirantes</h6>
-                <p class="size">Talla: S</p>
-                <p class="color">Color: Rojo</p>
-                <p class="price">$45.00</p>
-              </div>
-            </a>
           </div>
-
-          <div class="single-cart-item">
-            <a href="#" class="product-image">
-              <img
-                src="img/product-img/product-3.jpg"
-                class="cart-thumb"
-                alt=""
-              />
-              <div class="cart-item-desc">
-                <span class="product-remove"
-                  ><i class="fa fa-close" aria-hidden="true"></i
-                ></span>
-                <span class="badge">Mango</span>
-                <h6>Vestido Mini con Tirantes</h6>
-                <p class="size">Talla: S</p>
-                <p class="color">Color: Rojo</p>
-                <p class="price">$45.00</p>
+          <div id="footer-cart" class="px-2">
+            <div class="row py-3 fs-3">
+              <div class="col-6">
+                <span class="font-bold">Subtotal:</span>
               </div>
-            </a>
+              <div class="col-6 text-right">
+                <span>$90.00</span>
+              </div>
+              <div class="col-6">
+                <span class="font-bold">Envío:</span>
+              </div>
+              <div class="col-6 text-right">
+                <span>Gratis</span>
+              </div>
+              <div class="col-6">
+                <span class="font-bold">Descuento:</span>
+              </div>
+              <div class="col-6 text-right">
+                <span>1.99</span>
+              </div>
+              <div class="col-6">
+                <span class="font-bold">Gran Total:</span>
+              </div>
+              <div class="col-6 text-right">
+                <span>88.1</span>
+              </div>
+              <div class="col-12">
+                <a href="checkout.html" class="btn essence-btn w-100 mt-3"
+                  >Pagar ahora</a
+                >
+              </div>
+            </div>
           </div>
         </div>
-
-        
       </div>
     </div>
     <section class="single_product_details_area d-flex align-items-center">
@@ -188,7 +166,7 @@
       <div class="single_product_desc clearfix">
         <span class="product-category">mango</span>
         <h2 class="product-title"></h2>
-        <p class="product-price"></p>
+        <span class="fs-4 d-flex align-items-center gap-2">L. <p class="product-price"></p></span>
         <p class="product-desc"></p>
         <form class="cart-form clearfix" method="post">
           <div class="select-box d-flex mt-50 mb-30 row">
@@ -401,5 +379,6 @@
     <script src="js/classy-nav.min.js"></script>
     <script src="js/active.js"></script>
     <script src="js/scripts/product.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

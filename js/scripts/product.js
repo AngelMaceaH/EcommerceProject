@@ -1,12 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const cartOverlay = document.querySelector(".cart-bg-overlay");
-    const cartWrapper = document.querySelector(".right-side-cart-area");
-
-    const cartOverlayOn = "cart-bg-overlay-on";
-    const cartOn = "cart-on";
-
-    cartOverlay.classList.toggle(cartOverlayOn);
-    cartWrapper.classList.toggle(cartOn);
   const params = new URLSearchParams(window.location.search);
   const productId = params.get("id");
   const btnAddToCart = document.getElementById("addtocart");
@@ -28,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
       productThumbnails.innerHTML = `<img src="${data.image}" alt="${data.title}" width="50%">`;
       productCategory.textContent = data.category;
       productTitle.textContent = data.title;
-      productPrice.innerHTML = `L. ${data.price.toFixed(2)}`;
+      productPrice.innerHTML = `${data.price.toFixed(2)}`;
       productDesc.textContent = data.description;
     })
     .catch((error) => {
@@ -44,7 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const current = parseInt(quantityInput.value);
     if (current > 1) quantityInput.value = current - 1;
   });
-
   btnAddToCart.addEventListener("click", () => {
     const message = document.getElementById("messageError");
     const size = document.getElementById("productSize").value;
@@ -63,11 +54,19 @@ document.addEventListener("DOMContentLoaded", function () {
       message.textContent = "La cantidad no está disponible";
       return;
     }
+    const url = document.querySelector(".product_thumbnail_slides img").src;
+    const price = document.querySelector(".product-price").textContent;
+    const title = document.querySelector(".product-title").textContent;
+    const titleCart = `${title.substring(0, 30)}...`;
     const cartItem = {
       productId: productId,
+      title: title,
+      titleCart: titleCart,
       quantity: quantity,
       size: size,
       color: color,
+      price: parseFloat(price),
+      image: url,
     };
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const existingItemIndex = cart.findIndex(

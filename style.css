@@ -1,5 +1,28 @@
-.product-img, .hover-img {
-    width: 100%;
-    height: auto;
-    max-height: 300px !important;
+.product-img,
+.hover-img {
+  width: 100%;
+  height: auto;
+  max-height: 300px !important;
+}
+.fs-4 {
+  font-size: 1.3rem !important;
+}
+.gap-2{
+  gap: 0.5rem !important;
+}
+
+/* Carrito */
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+#header-cart,
+#footer-cart {
+  flex-shrink: 0;
+}
+
+#body-cart {
+  flex-grow: 1;
+  overflow-y: auto;
 }

@@ -58,14 +58,20 @@
     cartbtn1.on('click', function () {
         cartOverlay.toggleClass(cartOverlayOn);
         cartWrapper.toggleClass(cartOn);
+        const body = document.querySelector("body");
+        body.style.overflow = "hidden";
     });
     cartOverlay.on('click', function () {
         $(this).removeClass(cartOverlayOn);
         cartWrapper.removeClass(cartOn);
+        const body = document.querySelector("body");
+        body.style.overflow = "auto";
     });
     cartbtn2.on('click', function () {
         cartOverlay.removeClass(cartOverlayOn);
         cartWrapper.removeClass(cartOn);
+        const body = document.querySelector("body");
+        body.style.overflow = "auto";
     });
 
     // :: ScrollUp Active Code
