@@ -8,8 +8,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+
     <title>AVARA - USAP Proyecto Programación II</title>
+
     <link rel="icon" href="img/core-img/favicon.png" />
+
     <link rel="stylesheet" href="css/core-style.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -37,7 +40,7 @@
             <div class="classynav">
               <ul>
                 <li>
-                  <a href="#">Vestimentas</a>
+                  <a href="shop.html">Vestimentas</a>
                   <div class="megamenu">
                     <ul class="single-mega cn-col-4">
                       <li class="title">Colección de Mujeres</li>
@@ -96,177 +99,51 @@
             <a href="#"><img src="img/core-img/user.svg" alt="" /></a>
           </div>
           <div class="cart-area">
-            <a href="#" id="essenceCartBtn"
+            <a href="/checkout.html"
               ><img src="img/core-img/bag.svg" alt="" />
-              <span id="cart-counter-i"></span
-            ></a>
+            </a>
           </div>
         </div>
       </div>
     </header>
-    <div class="cart-bg-overlay"></div>
-    <div class="right-side-cart-area">
-      <div class="cart-button">
-        <a href="#" id="rightSideCart">
-          <img src="img/core-img/bag.svg" alt="" />
-          <span id="cart-counter-ii"></span>
-        </a>
-      </div>
-
-      <div class="cart-content d-flex">
-        <div class="cart-list px-2">
-          <div id="header-cart" class="py-3">
-            <h2>Mi carrito</h2>
-          </div>
-          <div id="body-cart"></div>
-          <div id="footer-cart" class="px-2">
-            <div class="row py-3 fs-3">
-              <div class="col-6">
-                <span class="font-bold">Subtotal:</span>
-              </div>
-              <div class="col-6 text-right">
-                L. <span id="cart-subtotal">00.00</span>
-              </div>
-              <div class="col-6">
-                <span class="font-bold">Envío:</span>
-              </div>
-              <div class="col-6 text-right">
-                <span>L. 0.00</span>
-              </div>
-              <div class="col-6">
-                <span class="font-bold">Descuento:</span>
-              </div>
-              <div class="col-6 text-right">
-                L. <span id="cart-discount">0.00</span>
-              </div>
-              <div class="col-6">
-                <span class="font-bold">Gran Total:</span>
-              </div>
-              <div class="col-6 text-right">
-                L. <span id="cart-grandtotal">0.00</span>
-              </div>
-              <div class="col-12">
-                <a href="checkout.html" class="btn essence-btn w-100 mt-3"
-                  >Pagar ahora</a
-                >
-              </div>
+    <div
+      class="breadcumb_area bg-img"
+      style="background-image: url(img/bg-img/breadcumb.jpg)"
+    >
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12">
+            <div class="page-title text-center">
+              <h2>Tu compra ha sido procesada con éxito</h2>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <section class="single_product_details_area d-flex align-items-center">
-      <div class="single_product_thumb clearfix">
-        <div
-          class="product_thumbnail_slides owl-carousel d-flex justify-content-center py-5"
-        ></div>
-      </div>
 
-      <div class="single_product_desc clearfix">
-        <span class="product-category">mango</span>
-        <h2 class="product-title"></h2>
-        <span class="fs-4 d-flex align-items-center gap-2"
-          >L.
-          <p class="product-price"></p
-        ></span>
-        <p class="product-desc"></p>
-        <form class="cart-form clearfix" method="post">
-          <div class="select-box d-flex mt-50 mb-30 row">
-            <div class="col-12">
-              <span class="text-danger" id="messageError"></span>
+    <div class="checkout_area section-padding-80">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8 col-lg-6 text-center">
+            <h4 class="mb-3">¡Gracias por tu compra!</h4>
+            <p class="mb-4">
+              Hemos recibido tu pedido y está siendo procesado. Te enviaremos un
+              correo con los detalles en breve.
+            </p>
+            <div class="border p-4 rounded bg-light mb-4">
+              <h5 class="mb-3">Resumen de la orden</h5>
+              <p>
+                <strong>Número de orden:</strong> #<span id="cart-orden"></span>
+              </p>
+              <p><strong>Fecha:</strong> <span id="cart-date"></span></p>
             </div>
-            <div class="col-12 col-lg-6 py-3">
-              <span for="productSize">Talla</span>
-              <select name="select" id="productSize" class="mr-5 w-100">
-                <option value="" disabled selected>Selecciona la talla</option>
-                <option value="xl">XL</option>
-                <option value="x">X</option>
-                <option value="m">M</option>
-                <option value="s">S</option>
-              </select>
-            </div>
-            <div class="col-12 col-lg-6 py-3">
-              <span for="productColor">Color</span>
-              <select name="select" id="productColor" class="w-100">
-                <option value="" disabled selected>Selecciona el color</option>
-                <option value="negro">Negro</option>
-                <option value="blanco">Blanco</option>
-                <option value="rojo">Rojo</option>
-                <option value="purpura">Púrpura</option>
-              </select>
-            </div>
-            <div class="col-12 py-3">
-              <span>Cantidad:</span>
-              <div class="d-flex align-items-center gap-2">
-                <button
-                  type="button"
-                  id="decreaseBtn"
-                  class="btn btn-outline-secondary pt-2"
-                  style="height: 50px"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="black"
-                    class="bi bi-dash-lg"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8"
-                    />
-                  </svg>
-                </button>
-                <input
-                  class="form-control text-center w-100"
-                  id="productQuantity"
-                  type="number"
-                  value="1"
-                  min="1"
-                  style="height: 50px"
-                />
-                <button
-                  type="button"
-                  id="increaseBtn"
-                  class="btn btn-outline-secondary pt-2"
-                  style="height: 50px"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="black"
-                    class="bi bi-plus-lg"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div
-            class="cart-fav-box d-flex align-items-center justify-content-center"
-          >
-            <button
-              type="button"
-              id="addtocart"
-              value="5"
-              class="btn essence-btn"
+            <a href="/shop.html" class="btn essence-btn mt-3"
+              >Volver al catálogo</a
             >
-              Agregar al carrito
-            </button>
-            <div class="product-favourite ml-4">
-              <a href="#" class="favme fa fa-heart"></a>
-            </div>
           </div>
-        </form>
+        </div>
       </div>
-    </section>
+    </div>
     <footer class="footer_area clearfix">
       <div class="container">
         <div class="row">
@@ -380,7 +257,6 @@
     <script src="js/plugins.js"></script>
     <script src="js/classy-nav.min.js"></script>
     <script src="js/active.js"></script>
-    <script src="js/scripts/product.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/scripts/congrats.js"></script>
   </body>
 </html>

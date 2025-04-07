@@ -86,5 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cartOverlay.classList.toggle(cartOverlayOn);
     cartWrapper.classList.toggle(cartOn);
+    const body = document.querySelector("body");
+    body.style.overflow = "hidden";
   });
 });

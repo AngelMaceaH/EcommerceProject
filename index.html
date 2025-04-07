@@ -9,7 +9,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <title>AVARA - USAP Proyecto Angel Macea</title>
+    <title>AVARA - USAP Proyecto Programación II</title>
 
     <link rel="icon" href="img/core-img/favicon.png" />
 
@@ -40,7 +40,7 @@
             <div class="classynav">
               <ul>
                 <li>
-                  <a href="shop.html">Ropa</a>
+                  <a href="shop.html">Vestimentas</a>
                   <div class="megamenu">
                     <ul class="single-mega cn-col-4">
                       <li class="title">Colección de Mujeres</li>
@@ -100,18 +100,19 @@
           </div>
           <div class="cart-area">
             <a href="#" id="essenceCartBtn"
-              ><img src="img/core-img/bag.svg" alt="" /> <span>3</span></a
-            >
+              ><img src="img/core-img/bag.svg" alt="" />
+              <span id="cart-counter-i"></span
+            ></a>
           </div>
         </div>
       </div>
     </header>
     <div class="cart-bg-overlay"></div>
-
     <div class="right-side-cart-area">
       <div class="cart-button">
         <a href="#" id="rightSideCart">
-          <img src="img/core-img/bag.svg" alt="" /> <span>3</span>
+          <img src="img/core-img/bag.svg" alt="" />
+          <span id="cart-counter-ii"></span>
         </a>
       </div>
 
@@ -120,123 +121,32 @@
           <div id="header-cart" class="py-3">
             <h2>Mi carrito</h2>
           </div>
-          <div id="body-cart">
-            <div class="single-cart-item my-2">
-              <a href="#" class="product-image">
-                <img
-                  src="img/product-img/product-1.jpg"
-                  class="cart-thumb"
-                  alt=""
-                />
-                <div class="cart-item-desc">
-                  <span class="product-remove"
-                    ><i class="fa fa-close" aria-hidden="true"></i
-                  ></span>
-                  <span class="badge">Mango</span>
-                  <h6>Vestido Mini con Tirantes</h6>
-                  <div class="row">
-                    <div class="col-6">
-                      <p class="color">Talla: S</p>
-                    </div>
-                    <div class="col-6">
-                      <p class="color">Color: Rojo</p>
-                    </div>
-                    <div class="col-6">
-                      <p class="color">Cantidad: 2</p>
-                    </div>
-                    <div class="col-6 d-flex justify-content-end">
-                      <p class="color text-white fs-4">$45.00</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="single-cart-item my-2">
-              <a href="#" class="product-image">
-                <img
-                  src="img/product-img/product-2.jpg"
-                  class="cart-thumb"
-                  alt=""
-                />
-                <div class="cart-item-desc">
-                  <span class="product-remove"
-                    ><i class="fa fa-close" aria-hidden="true"></i
-                  ></span>
-                  <span class="badge">Mango</span>
-                  <h6>Vestido Mini con Tirantes</h6>
-                  <div class="row">
-                    <div class="col-6">
-                      <p class="color">Talla: S</p>
-                    </div>
-                    <div class="col-6">
-                      <p class="color">Color: Rojo</p>
-                    </div>
-                    <div class="col-6">
-                      <p class="color">Cantidad: 2</p>
-                    </div>
-                    <div class="col-6 d-flex justify-content-end">
-                      <p class="color text-white fs-4">$45.00</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="single-cart-item my-2">
-              <a href="#" class="product-image">
-                <img
-                  src="img/product-img/product-3.jpg"
-                  class="cart-thumb"
-                  alt=""
-                />
-                <div class="cart-item-desc">
-                  <span class="product-remove"
-                    ><i class="fa fa-close" aria-hidden="true"></i
-                  ></span>
-                  <span class="badge">Mango</span>
-                  <h6>Vestido Mini con Tirantes</h6>
-                  <div class="row">
-                    <div class="col-6">
-                      <p class="color">Talla: S</p>
-                    </div>
-                    <div class="col-6">
-                      <p class="color">Color: Rojo</p>
-                    </div>
-                    <div class="col-6">
-                      <p class="color">Cantidad: 2</p>
-                    </div>
-                    <div class="col-6 d-flex justify-content-end">
-                      <p class="color text-white fs-4">$45.00</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
+          <div id="body-cart"></div>
           <div id="footer-cart" class="px-2">
             <div class="row py-3 fs-3">
               <div class="col-6">
                 <span class="font-bold">Subtotal:</span>
               </div>
               <div class="col-6 text-right">
-                <span>$90.00</span>
+                L. <span id="cart-subtotal">00.00</span>
               </div>
               <div class="col-6">
                 <span class="font-bold">Envío:</span>
               </div>
               <div class="col-6 text-right">
-                <span>Gratis</span>
+                <span>L. 0.00</span>
               </div>
               <div class="col-6">
                 <span class="font-bold">Descuento:</span>
               </div>
               <div class="col-6 text-right">
-                <span>1.99</span>
+                L. <span id="cart-discount">0.00</span>
               </div>
               <div class="col-6">
                 <span class="font-bold">Gran Total:</span>
               </div>
               <div class="col-6 text-right">
-                <span>88.1</span>
+                L. <span id="cart-grandtotal">0.00</span>
               </div>
               <div class="col-12">
                 <a href="checkout.html" class="btn essence-btn w-100 mt-3"
@@ -324,7 +234,9 @@
       </div>
     </div>
 
-    <div class="brands-area d-flex align-items-center justify-content-between mt-5">
+    <div
+      class="brands-area d-flex align-items-center justify-content-between mt-5"
+    >
       <div class="single-brands-logo">
         <img src="img/core-img/brand1.png" alt="" />
       </div>
@@ -442,7 +354,7 @@
         <div class="row mt-5">
           <div class="col-md-12 text-center">
             <p>
-              Angel Macea &copy;
+              Programación II &copy;
               <script>
                 document.write(new Date().getFullYear());
               </script>

@@ -8,7 +8,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>AVARA - USAP Proyecto Angel Macea</title>
+    <title>AVARA - USAP Proyecto Programación II</title>
     <link rel="icon" href="img/core-img/favicon.png" />
     <link rel="stylesheet" href="css/core-style.css" />
     <link rel="stylesheet" href="style.css" />
@@ -37,7 +37,7 @@
             <div class="classynav">
               <ul>
                 <li>
-                  <a href="#">Ropa</a>
+                  <a href="#">Vestimentas</a>
                   <div class="megamenu">
                     <ul class="single-mega cn-col-4">
                       <li class="title">Colección de Mujeres</li>
@@ -97,18 +97,19 @@
           </div>
           <div class="cart-area">
             <a href="#" id="essenceCartBtn"
-              ><img src="img/core-img/bag.svg" alt="" /> <span>3</span></a
-            >
+              ><img src="img/core-img/bag.svg" alt="" />
+              <span id="cart-counter-i"></span
+            ></a>
           </div>
         </div>
       </div>
     </header>
     <div class="cart-bg-overlay"></div>
-
     <div class="right-side-cart-area">
       <div class="cart-button">
         <a href="#" id="rightSideCart">
-          <img src="img/core-img/bag.svg" alt="" /> <span>3</span>
+          <img src="img/core-img/bag.svg" alt="" />
+          <span id="cart-counter-ii"></span>
         </a>
       </div>
 
@@ -117,123 +118,32 @@
           <div id="header-cart" class="py-3">
             <h2>Mi carrito</h2>
           </div>
-          <div id="body-cart">
-            <div class="single-cart-item my-2">
-              <a href="#" class="product-image">
-                <img
-                  src="img/product-img/product-1.jpg"
-                  class="cart-thumb"
-                  alt=""
-                />
-                <div class="cart-item-desc">
-                  <span class="product-remove"
-                    ><i class="fa fa-close" aria-hidden="true"></i
-                  ></span>
-                  <span class="badge">Mango</span>
-                  <h6>Vestido Mini con Tirantes</h6>
-                  <div class="row">
-                    <div class="col-6">
-                      <p class="color">Talla: S</p>
-                    </div>
-                    <div class="col-6">
-                      <p class="color">Color: Rojo</p>
-                    </div>
-                    <div class="col-6">
-                      <p class="color">Cantidad: 2</p>
-                    </div>
-                    <div class="col-6 d-flex justify-content-end">
-                      <p class="color text-white fs-4">$45.00</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="single-cart-item my-2">
-              <a href="#" class="product-image">
-                <img
-                  src="img/product-img/product-2.jpg"
-                  class="cart-thumb"
-                  alt=""
-                />
-                <div class="cart-item-desc">
-                  <span class="product-remove"
-                    ><i class="fa fa-close" aria-hidden="true"></i
-                  ></span>
-                  <span class="badge">Mango</span>
-                  <h6>Vestido Mini con Tirantes</h6>
-                  <div class="row">
-                    <div class="col-6">
-                      <p class="color">Talla: S</p>
-                    </div>
-                    <div class="col-6">
-                      <p class="color">Color: Rojo</p>
-                    </div>
-                    <div class="col-6">
-                      <p class="color">Cantidad: 2</p>
-                    </div>
-                    <div class="col-6 d-flex justify-content-end">
-                      <p class="color text-white fs-4">$45.00</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="single-cart-item my-2">
-              <a href="#" class="product-image">
-                <img
-                  src="img/product-img/product-3.jpg"
-                  class="cart-thumb"
-                  alt=""
-                />
-                <div class="cart-item-desc">
-                  <span class="product-remove"
-                    ><i class="fa fa-close" aria-hidden="true"></i
-                  ></span>
-                  <span class="badge">Mango</span>
-                  <h6>Vestido Mini con Tirantes</h6>
-                  <div class="row">
-                    <div class="col-6">
-                      <p class="color">Talla: S</p>
-                    </div>
-                    <div class="col-6">
-                      <p class="color">Color: Rojo</p>
-                    </div>
-                    <div class="col-6">
-                      <p class="color">Cantidad: 2</p>
-                    </div>
-                    <div class="col-6 d-flex justify-content-end">
-                      <p class="color text-white fs-4">$45.00</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
+          <div id="body-cart"></div>
           <div id="footer-cart" class="px-2">
             <div class="row py-3 fs-3">
               <div class="col-6">
                 <span class="font-bold">Subtotal:</span>
               </div>
               <div class="col-6 text-right">
-                <span>$90.00</span>
+                L. <span id="cart-subtotal">00.00</span>
               </div>
               <div class="col-6">
                 <span class="font-bold">Envío:</span>
               </div>
               <div class="col-6 text-right">
-                <span>Gratis</span>
+                <span>L. 0.00</span>
               </div>
               <div class="col-6">
                 <span class="font-bold">Descuento:</span>
               </div>
               <div class="col-6 text-right">
-                <span>1.99</span>
+                L. <span id="cart-discount">0.00</span>
               </div>
               <div class="col-6">
                 <span class="font-bold">Gran Total:</span>
               </div>
               <div class="col-6 text-right">
-                <span>88.1</span>
+                L. <span id="cart-grandtotal">0.00</span>
               </div>
               <div class="col-12">
                 <a href="checkout.html" class="btn essence-btn w-100 mt-3"
@@ -270,19 +180,19 @@
                 <div class="catagories-menu">
                   <ul id="menu-content2" class="menu-content collapse show">
                     <li data-toggle="collapse" data-target="#clothing">
-                      <a href="#">Ropa</a>
+                      <a class="text-black" href="#">Vestimentas</a>
                       <ul class="sub-menu collapse show" id="clothing">
-                        <li><a href="#">Todos</a></li>
-                        <li><a href="#">Bodies</a></li>
-                        <li><a href="#">Vestidos</a></li>
-                        <li><a href="#">Sudaderas</a></li>
-                        <li><a href="#">Chaquetas y Abrigos</a></li>
-                        <li><a href="#">Jeans</a></li>
-                        <li><a href="#">Pantalones y Leggings</a></li>
-                        <li><a href="#">Enterizos</a></li>
-                        <li><a href="#">Camisas y Blusas</a></li>
-                        <li><a href="#">Camisas</a></li>
-                        <li><a href="#">Suéteres y Tejidos</a></li>
+                        <li><a href="/shop.html">Todos</a></li>
+                        <li><a href="/shop.html">Bodies</a></li>
+                        <li><a href="/shop.html">Vestidos</a></li>
+                        <li><a href="/shop.html">Sudaderas</a></li>
+                        <li><a href="/shop.html">Chaquetas y Abrigos</a></li>
+                        <li><a href="/shop.html">Jeans</a></li>
+                        <li><a href="/shop.html">Pantalones y Leggings</a></li>
+                        <li><a href="/shop.html">Enterizos</a></li>
+                        <li><a href="/shop.html">Camisas y Blusas</a></li>
+                        <li><a href="/shop.html">Camisas</a></li>
+                        <li><a href="/shop.html">Suéteres y Tejidos</a></li>
                       </ul>
                     </li>
                     <li
@@ -290,7 +200,7 @@
                       data-target="#shoes"
                       class="collapsed"
                     >
-                      <a href="#">Zapatos</a>
+                      <a class="text-black" href="#">Zapatos</a>
                       <ul class="sub-menu collapse" id="shoes">
                         <li><a href="#">Todos</a></li>
                         <li><a href="#">Sandalias</a></li>
@@ -305,7 +215,7 @@
                       data-target="#accessories"
                       class="collapsed"
                     >
-                      <a href="#">Accesorios</a>
+                      <a class="text-black" href="#">Accesorios</a>
                       <ul class="sub-menu collapse" id="accessories">
                         <li><a href="#">Todos</a></li>
                         <li><a href="#">Bolsos</a></li>
@@ -320,14 +230,14 @@
               </div>
 
               <div class="widget price mb-50">
-                <h6 class="widget-title mb-30">Filter by</h6>
-                <p class="widget-title2 mb-30">Price</p>
+                <h6 class="widget-title mb-30">Filtra por</h6>
+                <p class="widget-title2 mb-30">Precio</p>
 
                 <div class="widget-desc">
                   <div class="slider-range">
                     <div
-                      data-min="49"
-                      data-max="360"
+                      data-min="1"
+                      data-max="1500"
                       data-unit="$"
                       class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
                       data-value-min="49"
@@ -346,7 +256,7 @@
                         tabindex="0"
                       ></span>
                     </div>
-                    <div class="range-price">Rango: $49.00 - $360.00</div>
+                    <div class="range-price">Rango: L. 1.00 - L. 1500.00</div>
                   </div>
                 </div>
               </div>
@@ -367,18 +277,6 @@
                   </ul>
                 </div>
               </div>
-              <div class="widget brands mb-50">
-                <p class="widget-title2 mb-30">Marcas</p>
-                <div class="widget-desc">
-                  <ul>
-                    <li><a href="#">Asos</a></li>
-                    <li><a href="#">Mango</a></li>
-                    <li><a href="#">River Island</a></li>
-                    <li><a href="#">Topshop</a></li>
-                    <li><a href="#">Zara</a></li>
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -395,24 +293,26 @@
                         encontrados
                       </p>
                     </div>
-                    <div class="product-sorting d-flex">
+                    <div class="product-sorting d-flex align-items-center">
                       <p>Ordenar por:</p>
-                      <form action="#" method="get">
-                        <select name="select" id="sortByselect">
-                          <option value="value">Mejor Valorados</option>
-                          <option value="value">Más Nuevos</option>
-                          <option value="value">Precio: mayor a menor</option>
-                          <option value="value">Precio: menor a mayor</option>
+                      <div class="product-sorting">
+                        <select id="sortByselect" class="form-control w-auto">
+                          <option value="default">Selecciona una opción</option>
+                          <option value="price-low">
+                            Precio: menor a mayor
+                          </option>
+                          <option value="price-high">
+                            Precio: mayor a menor
+                          </option>
+                          <option value="name-asc">Nombre A-Z</option>
+                          <option value="name-desc">Nombre Z-A</option>
                         </select>
-                        <input type="submit" class="d-none" value="" />
-                      </form>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="row" id="list_products">
-
-              </div>
+              <div class="row" id="list_products"></div>
             </div>
             <nav aria-label="navigation">
               <ul class="pagination w-100"></ul>
@@ -519,7 +419,7 @@
         <div class="row mt-5">
           <div class="col-md-12 text-center">
             <p>
-              Angel Macea &copy;
+              Programación II &copy;
               <script>
                 document.write(new Date().getFullYear());
               </script>

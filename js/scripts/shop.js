@@ -1,5 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Iniciar carrito
+  // Evento Select
+  $("select#sortByselect").on("change", function () {
+    const sortValue = $(this).val();
+    chargeProducts(sortValue);
+  });
+
+  // Evento: cambio en el rango de precio
+  const $sliderTarget = $(".slider-range-price");
+
+  if ($sliderTarget.length > 0) {
+    const min = parseInt($sliderTarget.data("min")) || 0;
+    const max = parseInt($sliderTarget.data("max")) || 1000;
+
+    $sliderTarget.slider({
+      range: true,
+      min: min,
+      max: max,
+      values: [min, max],
+      slide: function (event, ui) {
+        $(".range-price").text(`Rango: $${ui.values[0]} - $${ui.values[1]}`);
+      },
+      stop: function (event, ui) {
+        localStorage.setItem("minPrice", ui.values[0]);
+        localStorage.setItem("maxPrice", ui.values[1]);
+        document.getElementById("list_products").innerHTML = "";
+        chargeProducts();
+      },
+    });
+  } else {
+    console.log("No se encontró .slider-range-price");
+  }
 });
 //Clases
 class executeRequest {
@@ -44,6 +74,67 @@ pagination.addEventListener("click", (e) => {
     chargeProducts();
   }
 });
+// Función principal para cargar, filtrar y mostrar productos
+window.chargeProducts = function (sortBy = "default") {
+  new executeRequest()
+    .get()
+    .then((data) => {
+      // Obtener filtros desde localStorage
+      let minPrice = parseFloat(localStorage.getItem("minPrice")) || 0;
+      let maxPrice = parseFloat(localStorage.getItem("maxPrice")) || 10000;
+
+      // Filtrar por precio
+      data = data.filter(
+        (product) => product.price >= minPrice && product.price <= maxPrice
+      );
+
+      // Ordenar productos
+      switch (sortBy) {
+        case "price-low":
+          data.sort((a, b) => a.price - b.price);
+          break;
+        case "price-high":
+          data.sort((a, b) => b.price - a.price);
+          break;
+        case "name-asc":
+          data.sort((a, b) => a.title.localeCompare(b.title));
+          break;
+        case "name-desc":
+          data.sort((a, b) => b.title.localeCompare(a.title));
+          break;
+      }
+
+      // Paginación
+      const length = data.length;
+      counter_products.innerHTML = length;
+      const totalPages = Math.ceil(length / limit);
+      pagination.innerHTML = "";
+
+      // Crear botones de paginación
+      pagination.appendChild(
+        createPageButton(`<i class="fa fa-angle-left"></i>`, 1)
+      );
+      for (let i = 1; i <= totalPages; i++) {
+        pagination.appendChild(createPageButton(i, i));
+      }
+      pagination.appendChild(
+        createPageButton(`<i class="fa fa-angle-right"></i>`, totalPages)
+      );
+
+      // Limpiar productos anteriores
+      document.getElementById("list_products").innerHTML = "";
+
+      // Mostrar productos en la página actual
+      data.forEach((product, index) => {
+        if (index >= limit * (page - 1) && index < limit * page) {
+          initProducts(product);
+        }
+      });
+    })
+    .catch((error) => {
+      console.error("Error al cargar productos:", error);
+    });
+};
 //Cargado
 chargeProducts();
 //Funciones

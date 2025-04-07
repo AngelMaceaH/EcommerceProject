@@ -1775,7 +1775,7 @@ img {
 .order-details-confirmation {
   width: 100%;
   border: 2px solid #ebebeb;
-  padding: 40px;
+  padding: 20px;
 }
 @media only screen and (max-width: 767px) {
   .order-details-confirmation {
