@@ -7,10 +7,10 @@
 .fs-4 {
   font-size: 1.3rem !important;
 }
-.fs{
+.fs {
   font-size: 1rem !important;
 }
-.gap-2{
+.gap-2 {
   gap: 0.5rem !important;
 }
 .text-black {
@@ -29,6 +29,12 @@
 }
 
 #body-cart {
-  flex-grow: 1;
+  flex-grow: 0;
   overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  #body-cart {
+    flex-grow: 1;
+  }
 }
