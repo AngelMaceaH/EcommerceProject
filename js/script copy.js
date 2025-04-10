@@ -1,104 +1,84 @@
-// Elegir almacenamiento disponible
-function getStorage() {
-  try {
-    localStorage.setItem("__test__", "1");
-    localStorage.removeItem("__test__");
-    return localStorage;
-  } catch (e1) {
-    try {
-      sessionStorage.setItem("__test__", "1");
-      sessionStorage.removeItem("__test__");
-      alert(
-        "Tu navegador no permite almacenamiento persistente. Se usará almacenamiento temporal."
-      );
-      return sessionStorage;
-    } catch (e2) {
-      alert("Este navegador no permite guardar datos del carrito.");
-      return null;
-    }
-  }
-}
-
-const storage = getStorage();
-
 document.addEventListener("DOMContentLoaded", function () {
-  if (!storage) return;
-
-  const originalSetItem = storage.setItem;
-  storage.setItem = function (key, value) {
-    if (key === "cart") chargeCart(value);
+  const originalSetItem = localStorage.setItem;
+  localStorage.setItem = function (key, value) {
+    if (key === "cart") {
+      chargeCart(value);
+    }
     originalSetItem.apply(this, arguments);
   };
-
-  const storedCart = storage.getItem("cart");
-  if (storedCart) {
-    chargeCart(storedCart);
-  } else {
-    document.getElementById(
-      "body-cart"
-    ).innerHTML = `<p class="text-black py-5 px-2">No hay productos en el carrito</p>`;
-  }
-});
-
-document
-  .getElementById("essenceCartBtn")
-  .addEventListener("click", function () {
-    if (!storage) return;
-
-    const storedCart = storage.getItem("cart");
-    if (storedCart) {
-      chargeCart(storedCart);
+  window.addEventListener("storage", function (e) {
+    if (e.key === "cart") {
+      chargeCart(e.newValue);
     }
   });
+  const storedCart = localStorage.getItem("cart");
+  if (storedCart) {
+    chargeCart(storedCart);
+  }else{
+    const bodyCart = document.getElementById("body-cart");
+    bodyCart.innerHTML = `<p class="text-black py-5 px-2">No hay productos en el carrito</p>`;
+  }
+});
+const btnOpenCart = document.getElementById("essenceCartBtn");
 
+btnOpenCart.addEventListener("click", function () {
+  const storedCart = localStorage.getItem("cart");
+  if (storedCart) {
+    chargeCart(storedCart);
+  }
+  const originalSetItem = localStorage.setItem;
+  localStorage.setItem = function (key, value) {
+    if (key === "cart") {
+      chargeCart(value);
+    }
+    originalSetItem.apply(this, arguments);
+  };
+});
 function chargeCart(data) {
   const bodyCart = document.getElementById("body-cart");
   bodyCart.innerHTML = "";
   let items;
-
   try {
     items = JSON.parse(data);
   } catch (e) {
     console.error("No se pudo parsear el carrito:", e);
     return;
   }
-
   let totalProducts = 0;
   let subtotal = 0;
   let discount = 0;
-
+  let grandTotal = 0;
   items.forEach((element) => {
     totalProducts += element.quantity;
     subtotal += element.price * element.quantity;
+    if (subtotal > 2000) {
+      discount = subtotal * 0.1;
+    } else if (subtotal > 5000) {
+      discount = subtotal * 0.2;
+    } else {
+      discount = 0;
+    }
     createItemCart(element);
   });
-
-  if (subtotal > 5000) {
-    discount = subtotal * 0.2;
-  } else if (subtotal > 2000) {
-    discount = subtotal * 0.1;
-  }
-
   const cartCounter1 = document.getElementById("cart-counter-i");
   const cartCounter2 = document.getElementById("cart-counter-ii");
-
   if (totalProducts != 0) {
     cartCounter1.innerHTML = totalProducts;
     cartCounter2.innerHTML = totalProducts;
   } else {
+    const bodyCart = document.getElementById("body-cart");
     bodyCart.innerHTML = `<p class="text-black py-5 px-2">No hay productos en el carrito</p>`;
     cartCounter1.innerHTML = "";
     cartCounter2.innerHTML = "";
   }
-
-  const grandTotal = subtotal - discount;
-  document.getElementById("cart-subtotal").innerHTML = `${subtotal.toFixed(2)}`;
-  document.getElementById("cart-discount").innerHTML = `${discount.toFixed(2)}`;
-  document.getElementById("cart-grandtotal").innerHTML = `${grandTotal.toFixed(
-    2
-  )}`;
+  grandTotal = subtotal - discount;
+  const subtotalElement = document.getElementById("cart-subtotal");
+  const discountElement = document.getElementById("cart-discount");
+  const grandTotalElement = document.getElementById("cart-grandtotal");
+  subtotalElement.innerHTML = `${subtotal.toFixed(2)}`;
+  discountElement.innerHTML = `${discount.toFixed(2)}`;
+  grandTotalElement.innerHTML = `${grandTotal.toFixed(2)}`;
 }
-
 function createItemCart(element) {
   const bodyCart = document.getElementById("body-cart");
 
@@ -125,19 +105,19 @@ function createItemCart(element) {
   row.className = "row";
 
   row.innerHTML = `
-    <div class="col-5 py-1">
-      <p class="color text-white">Talla: ${element.size}</p>
-    </div>
-    <div class="col-7 py-1">
-      <p class="color text-white">Color: ${element.color}</p>
-    </div>
-    <div class="col-6 py-1">
-      <p class="color text-white">Cantidad: ${element.quantity}</p>
-    </div>
-    <div class="col-6 py-1">
-      <p class="color text-white fs-4">$${element.price}</p>
-    </div>
-  `;
+      <div class="col-5 py-1">
+        <p class="color text-white">Talla: ${element.size}</p>
+      </div>
+      <div class="col-7 py-1">
+        <p class="color text-white">Color: ${element.color}</p>
+      </div>
+      <div class="col-6 py-1">
+        <p class="color text-white">Cantidad: ${element.quantity}</p>
+      </div>
+      <div class="col-6 py-1">
+        <p class="color text-white fs-4">$${element.price}</p>
+      </div>
+    `;
 
   desc.insertAdjacentHTML("beforeend", remove);
   desc.appendChild(title);
@@ -145,15 +125,14 @@ function createItemCart(element) {
 
   link.appendChild(img);
   link.appendChild(desc);
+
   cartItem.appendChild(link);
   bodyCart.appendChild(cartItem);
 }
-
 function deleteItemCart(id) {
-  if (!storage) return;
-
-  const cart = JSON.parse(storage.getItem("cart") || "[]");
+  console.log(id);
+  const cart = JSON.parse(localStorage.getItem("cart"));
   const updatedCart = cart.filter((item) => item.productId != id);
-  storage.setItem("cart", JSON.stringify(updatedCart));
+  localStorage.setItem("cart", JSON.stringify(updatedCart));
   chargeCart(JSON.stringify(updatedCart));
 }
