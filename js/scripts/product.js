@@ -78,6 +78,9 @@ document.addEventListener("DOMContentLoaded", function () {
       cart.push(cartItem);
     }
     localStorage.setItem("cart", JSON.stringify(cart));
+    if (typeof chargeCart === "function") {
+      chargeCart(JSON.stringify(cart));
+    }
     const cartOverlay = document.querySelector(".cart-bg-overlay");
     const cartWrapper = document.querySelector(".right-side-cart-area");
 
