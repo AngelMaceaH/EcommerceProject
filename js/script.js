@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
+  if (!isLocalStorageAvailable()) {
+    alert(
+      "Tu navegador no permite guardar datos localmente. Activa el almacenamiento local para usar el carrito."
+    );
+    return;
+  }
+
   const originalSetItem = localStorage.setItem;
   localStorage.setItem = function (key, value) {
     if (key === "cart") {
@@ -6,34 +13,41 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     originalSetItem.apply(this, arguments);
   };
+
   window.addEventListener("storage", function (e) {
     if (e.key === "cart") {
       chargeCart(e.newValue);
     }
   });
+
   const storedCart = localStorage.getItem("cart");
   if (storedCart) {
     chargeCart(storedCart);
-  }else{
+  } else {
     const bodyCart = document.getElementById("body-cart");
     bodyCart.innerHTML = `<p class="text-black py-5 px-2">No hay productos en el carrito</p>`;
   }
 });
-const btnOpenCart = document.getElementById("essenceCartBtn");
 
+const btnOpenCart = document.getElementById("essenceCartBtn");
 btnOpenCart.addEventListener("click", function () {
   const storedCart = localStorage.getItem("cart");
   if (storedCart) {
     chargeCart(storedCart);
   }
-  const originalSetItem = localStorage.setItem;
-  localStorage.setItem = function (key, value) {
-    if (key === "cart") {
-      chargeCart(value);
-    }
-    originalSetItem.apply(this, arguments);
-  };
 });
+
+function isLocalStorageAvailable() {
+  try {
+    const testKey = "__test__";
+    localStorage.setItem(testKey, "1");
+    localStorage.removeItem(testKey);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 function chargeCart(data) {
   const bodyCart = document.getElementById("body-cart");
   bodyCart.innerHTML = "";
