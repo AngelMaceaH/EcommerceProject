@@ -4,32 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const sortValue = $(this).val();
     chargeProducts(sortValue);
   });
-
-  // Evento: cambio en el rango de precio
-  const $sliderTarget = $(".slider-range-price");
-
-  if ($sliderTarget.length > 0) {
-    const min = parseInt($sliderTarget.data("min")) || 0;
-    const max = parseInt($sliderTarget.data("max")) || 1000;
-
-    $sliderTarget.slider({
-      range: true,
-      min: min,
-      max: max,
-      values: [min, max],
-      slide: function (event, ui) {
-        $(".range-price").text(`Rango: $${ui.values[0]} - $${ui.values[1]}`);
-      },
-      stop: function (event, ui) {
-        localStorage.setItem("minPrice", ui.values[0]);
-        localStorage.setItem("maxPrice", ui.values[1]);
-        document.getElementById("list_products").innerHTML = "";
-        chargeProducts();
-      },
-    });
-  } else {
-    console.log("No se encontró .slider-range-price");
-  }
 });
 //Clases
 class executeRequest {
@@ -212,7 +186,7 @@ function initProducts(product) {
   const addToCartBtn = document.createElement("div");
   addToCartBtn.className = "add-to-cart-btn";
   const a2 = document.createElement("a");
-  a2.className = "btn essence-btn p-0";
+  a2.className = "btn avara-btn p-0";
   a2.innerHTML = `Ver producto`;
   a2.href = "product.html?id=" + product.id;
   //Append

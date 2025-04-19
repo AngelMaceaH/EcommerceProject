@@ -4,9 +4,7 @@
 @import url(../css/owl.carousel.css);
 @import url(../css/animate.css);
 @import url(../css/magnific-popup.css);
-@import url(../css/jquery-ui.min.css);
 @import url(../css/nice-select.css);
-@import url(../css/font-awesome.min.css);
 * {
   margin: 0;
   padding: 0;
@@ -77,7 +75,6 @@ img {
   max-width: 100%;
 }
 
-/* Spacing */
 .mt-15 {
   margin-top: 15px !important;
 }
@@ -142,7 +139,6 @@ img {
   margin-right: 50px !important;
 }
 
-/* Height */
 .height-400 {
   height: 400px !important;
 }
@@ -163,7 +159,6 @@ img {
   height: 800px !important;
 }
 
-/* Section Padding */
 .section-padding-80 {
   padding-top: 80px;
   padding-bottom: 80px;
@@ -179,7 +174,6 @@ img {
   padding-bottom: 80px;
 }
 
-/* Section Heading */
 .section-heading {
   margin-bottom: 50px;
   position: relative;
@@ -195,7 +189,6 @@ img {
   text-align: left !important;
 }
 
-/* Miscellaneous */
 .bg-img {
   background-position: center center;
   background-size: cover;
@@ -248,7 +241,6 @@ img {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-/* ScrollUp */
 #scrollUp {
   background-color: #ff084e;
   border-radius: 0;
@@ -269,8 +261,7 @@ img {
   }
 }
 
-/* Button */
-.essence-btn {
+.avara-btn {
   display: inline-block;
   min-width: 170px;
   height: 50px;
@@ -285,13 +276,12 @@ img {
   letter-spacing: 1.5px;
   font-weight: 600;
 }
-.essence-btn:hover,
-.essence-btn:focus {
+.avara-btn:hover,
+.avara-btn:focus {
   color: #ffffff;
   background-color: #dc0345;
 }
 
-/* :: 4.0 Header Area CSS */
 .header_area {
   position: fixed;
   z-index: 900;
@@ -510,7 +500,6 @@ img {
   z-index: 1050;
 }
 
-/* Cart Area CSS */
 .right-side-cart-area {
   position: fixed;
   width: 300px;
@@ -861,7 +850,7 @@ img {
   font-family: "Ubuntu", sans-serif;
 }
 @media only screen and (max-width: 767px) {
-  .right-side-cart-area .cart-content .cart-amount-summary .essence-btn {
+  .right-side-cart-area .cart-content .cart-amount-summary .avara-btn {
     min-width: 140px;
     width: 140px;
     padding: 0 15px;
@@ -1125,7 +1114,7 @@ img {
   -webkit-transition-duration: 500ms;
   transition-duration: 500ms;
 }
-.single-product-wrapper .product-description .hover-content .essence-btn {
+.single-product-wrapper .product-description .hover-content .avara-btn {
   width: 100%;
 }
 .single-product-wrapper .favme {
@@ -2335,5 +2324,43 @@ img {
 }
 
 /* ##### The End ##### */
+.product-img,
+.hover-img {
+  width: 100%;
+  height: auto;
+  max-height: 300px !important;
+}
+.fs-4 {
+  font-size: 1.3rem !important;
+}
+.fs {
+  font-size: 1rem !important;
+}
+.gap-2 {
+  gap: 0.5rem !important;
+}
+.text-black {
+  color: #000 !important;
+}
 
-/*# sourceMappingURL=core-style.css.map */
+/* Carrito */
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+#header-cart,
+#footer-cart {
+  flex-shrink: 0;
+}
+
+#body-cart {
+  flex-grow: 0;
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  #body-cart {
+    flex-grow: 1;
+  }
+}

@@ -18,8 +18,43 @@ document.addEventListener("DOMContentLoaded", function () {
     const bodyCart = document.getElementById("body-cart");
     bodyCart.innerHTML = `<p class="text-black py-5 px-2">No hay productos en el carrito</p>`;
   }
+  const cartbtn1 = document.getElementById("avaraCartBtn");
+  const cartOverlay = document.querySelector(".cart-bg-overlay");
+  const cartWrapper = document.querySelector(".right-side-cart-area");
+  const cartbtn2 = document.getElementById("rightSideCart");
+
+  const cartOverlayOn = "cart-bg-overlay-on";
+  const cartOn = "cart-on";
+
+  cartbtn1.addEventListener("click", function () {
+    cartOverlay.classList.toggle(cartOverlayOn);
+    cartWrapper.classList.toggle(cartOn);
+
+    const body = document.querySelector("body");
+    if (cartOverlay.classList.contains(cartOverlayOn)) {
+      body.style.overflow = "hidden";
+    } else {
+      body.style.overflow = "auto";
+    }
+  });
+
+  cartOverlay.addEventListener("click", function () {
+    cartOverlay.classList.remove(cartOverlayOn);
+    cartWrapper.classList.remove(cartOn);
+
+    const body = document.querySelector("body");
+    body.style.overflow = "auto";
+  });
+
+  cartbtn2.addEventListener("click", function () {
+    cartOverlay.classList.remove(cartOverlayOn);
+    cartWrapper.classList.remove(cartOn);
+
+    const body = document.querySelector("body");
+    body.style.overflow = "auto";
+  });
 });
-const btnOpenCart = document.getElementById("essenceCartBtn");
+const btnOpenCart = document.getElementById("avaraCartBtn");
 
 btnOpenCart.addEventListener("click", function () {
   const storedCart = localStorage.getItem("cart");
